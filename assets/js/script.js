@@ -38,14 +38,18 @@ function showValues(){
     }
 }
 
-function removeItem(data){
-    let values = JSON.parse(localStorage.getItem(localStorageKey)) || '[]';
-    let index = values.find(x => x.name == data)
-    values.splice(index,1)
-    localStorage.setItem(localStorageKey, JSON.stringify(values))
-    //em cima ta deletando de acordo com o index, e em baixo ta chamando a função de novo para atualizar a lista na  tela.
-    showValues();
-}
+function removeItem(data) {
+    let values = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+    let index = values.findIndex(x => x.name == data);
+    if (index !== -1) {
+      values.splice(index, 1);
+      localStorage.setItem(localStorageKey, JSON.stringify(values));
+       //em cima ta deletando de acordo com o index, e em baixo ta chamando a função de novo para atualizar a lista na  tela.
+      showValues();
+    }
+  }
+  
+   
 
 //chamamando a função aqui fora para a lista estar sempre atualizada.
 showValues();
