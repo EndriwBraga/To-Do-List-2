@@ -1,7 +1,7 @@
 const localStorageKey = 'ToDoListGN'
 
 function validateIfExistNewTask(){
-    let values     = JSON.parse(localStorage.getItem(localStorageKey)) || '[]';
+    let values     = JSON.parse(localStorage.getItem(localStorageKey)) || [];
     let inputValue = document.getElementById('inputNewTask').value.trim();
     let exists     = values.find(x => x.name == inputValue)
     return !exists ? false : true
@@ -19,7 +19,7 @@ function newTask(){
     }else {
     
         //increment to localStorage
-        let values = JSON.parse(localStorage.getItem(localStorageKey)) || '[]';
+        let values = JSON.parse(localStorage.getItem(localStorageKey)) || [];
         values.push({
             name: input.value
         })
