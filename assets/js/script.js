@@ -17,16 +17,15 @@ function newTask(){
     } else if(validateIfExistNewTask()){
         alert('Já existe essa tarefa na lista.')
     }else {
-    
         //increment to localStorage
         let values = JSON.parse(localStorage.getItem(localStorageKey)) || [];
         values.push({
             name: input.value
-        })
+        });
         localStorage.setItem(localStorageKey, JSON.stringify(values))
         showValues()
     }
-    input.value = '';
+    
 }
 
 function showValues(){
@@ -48,8 +47,6 @@ function removeItem(data) {
       showValues();
     }
   }
-  
-   
 
 //chamamando a função aqui fora para a lista estar sempre atualizada.
 showValues();
