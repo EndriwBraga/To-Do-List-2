@@ -26,6 +26,9 @@ function newTask() {
     values.push(task);
     localStorage.setItem(localStorageKey, JSON.stringify(values));
     showValues();
+
+    input.value = '';
+
   }
 }
 
